@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ahmad Hamed</title>
+    <meta name="description" content="traversa" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" type="image/png" href="images/hamada_logo-removebg.png" />
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      /* Define CSS for adjusting image width and height */
+      .contact-image {
+        width: 200px;
+        /* Set the desired width */
+        height: auto;
+        /* Maintain aspect ratio */
+      }
+    </style>
+  </head>
+
+  <body id="top">
+    <!-- intro section
+   ================================================== -->
+    <section id="intro">
+      <!-- <div class="intro-overlay"></div> -->
+
+      <div class="intro-content">
+        <div class="row">
+          <div class="col-twelve">
+            <img src="images/hamada_logo-removebg.png" alt="" width="350px" />
+            <br />
+            <button
+              id="save-btn"
+              class="button stroke smoothscroll"
+              href="#"
+              title=""
+            >
+              Save Contact
+            </button>
+            <ul class="intro-social">
+              <li>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100011357445770"
+                  ><i class="fa-brands fa-facebook" style="color: #000000"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/hamadahamed2052/"
+                  ><i class="fa-brands fa-instagram" style="color: #000000"></i
+                ></a>
+              </li>
+
+              <li>
+                <a href="https://maps.app.goo.gl/8Sht5smHf7cYCEv17"
+                  ><i class="fa-regular fa-map" style="color: #000000"></i
+                ></a>
+              </li>
+
+              <li>
+                <a href="tel:+96170182269"
+                  ><i class="fa-solid fa-phone" style="color: #000000"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- /intro-content -->
+
+      <!-- /intro-social -->
+    </section>
+    <script>
+      var saveBtn = document.getElementById("save-btn");
+      saveBtn.addEventListener("click", function () {
+        // Get the contact information from the website
+        var contact = {
+          name: "Ahmad Hamed",
+          phones: ["+96170182269"],
+          email: "hamadahamed85@gmail.com",
+        };
+        // create a vcard file
+        var vcard =
+          "BEGIN:VCARD\nVERSION:3.0\nFN:" +
+          contact.name +
+          "\nTEL;TYPE=work,voice:" +
+          contact.phones +
+          "\nEMAIL:" +
+          contact.email +
+          "\nEND:VCARD";
+
+        var blob = new Blob([vcard], {
+          type: "text/vcard",
+        });
+        var url = URL.createObjectURL(blob);
+
+        const newLink = document.createElement("a");
+        newLink.download = contact.name + ".vcf";
+        newLink.textContent = contact.name;
+        newLink.href = url;
+
+        newLink.click();
+      });
+    </script>
+  </body>
+</html>
